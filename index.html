@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>imokay | 당신은 혼자가 아닙니다</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #f7faf9;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #e8f7f2 0%, #f7faf9 100%);
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 35px;
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #0f766e;
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #115e59;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h3 {
+      font-size: 2rem;
+      color: #0f766e;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+
+    .card p {
+      color: #6b7280;
+      font-size: 0.98rem;
+    }
+
+    .story {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 45px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .story p {
+      margin-bottom: 18px;
+      color: #374151;
+    }
+
+    .quote {
+      margin-top: 25px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0f766e;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    footer p {
+      color: #cbd5e1;
+      margin-top: 10px;
+    }
+
+    .email {
+      color: #5eead4;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .story {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero container">
+      <h1>imokay</h1>
+      <h2>당신은 혼자가 아닙니다.</h2>
+      <p>
+        암과 질병을 겪는 사람들과 가족들이 서로 연결되고,
+        경험을 나누며, 다시 삶을 믿을 수 있도록 돕는
+        AI 기반 디지털 헬스케어 플랫폼입니다.
+      </p>
+      <a href="mailto:iamokay@iamokay.kr" class="button">함께 이야기하기</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h3>왜 imokay 인가요?</h3>
+        <p>정보보다 먼저 필요한 것은, 나를 이해하는 사람입니다.</p>
+      </div>
+
+      <div class="story">
+        <p>
+          창업자는 갑상선암 진단 후 수술과 치료를 직접 경험했습니다.
+          여러 병원을 찾아다녔지만, 단순한 의료 정보보다 더 필요했던 것은
+          "나와 같은 경험을 한 사람"의 이야기였습니다.
+        </p>
+
+        <p>
+          진단을 받은 순간의 불안,
+          수술 전날의 두려움,
+          치료 후에도 계속되는 걱정.
+          하지만 이러한 감정을 편하게 나누고 기댈 수 있는 공간은 많지 않았습니다.
+        </p>
+
+        <p>
+          I am Okay는 단순한 의료 정보 플랫폼이 아닙니다.
+          아픈 사람들의 시간을 함께 건너며, 희망을 전하는 플랫폼입니다.
+        </p>
+
+        <div class="quote">
+          “암? okay. I am Okay.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#eef7f5;">
+    <div class="container">
+      <div class="section-title">
+        <h3>우리가 만들고 있는 것</h3>
+        <p>환자와 가족들을 위한 연결과 회복의 플랫폼</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>환우 커뮤니티</h4>
+          <p>
+            동일 질환, 연령, 치료 경험을 가진 사람들과 연결되어
+            서로의 경험과 감정을 나눌 수 있습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>AI 건강 분석</h4>
+          <p>
+            건강검진 결과 및 의료 데이터를 기반으로
+            이해하기 쉬운 건강 분석과 추적 관리를 제공합니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>정서적 지원</h4>
+          <p>
+            환자와 가족들이 혼자가 아니라는 것을 느낄 수 있도록
+            정서적 연결과 지지 경험을 제공합니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>통합 헬스케어</h4>
+          <p>
+            병원, 건강검진, 일정관리, 상담, 데이터 분석까지
+            하나의 플랫폼에서 연결합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>imokay.kr</h3>
+    <p>
+      병을 설명하는 플랫폼이 아니라,<br>
+      아픈 사람의 시간을 함께 건너는 플랫폼.
+    </p>
+    <p style="margin-top:20px;">
+      Contact : <a class="email" href="mailto:iamokay@iamokay.kr">iamokay@iamokay.kr</a>
+    </p>
+  </footer>
+
+</body>
+</html>
