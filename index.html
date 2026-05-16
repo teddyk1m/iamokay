@@ -779,6 +779,275 @@
     color: rgba(242,235,220,0.28);
   }
 
+  /* ---------------- UPLOAD BUTTON ---------------- */
+  .btn-upload{
+    display:inline-flex; align-items:center; gap: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+    padding: 15px 24px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-upload::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, rgba(110,135,115,0.08), rgba(63,82,70,0.06));
+    opacity:0; transition: opacity .3s;
+  }
+  .btn-upload:hover{
+    border-color: var(--sage);
+    color: var(--sage-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -10px rgba(63,82,70,0.18);
+  }
+  .btn-upload:hover::before{ opacity:1 }
+  .btn-upload:active{ transform: translateY(0) }
+  .btn-upload svg{ flex-shrink:0; transition: transform .3s }
+  .btn-upload:hover svg{ transform: translateY(-2px) }
+
+  /* 업로드 피드백 */
+  .upload-feedback{
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    animation: rise .4s ease-out;
+  }
+  .upload-feedback.loading{
+    border-color: var(--sage-soft);
+    background: #f4f8f5;
+    color: var(--sage-deep);
+  }
+  .upload-feedback.success{
+    border-color: rgba(110,135,115,0.4);
+    background: #f4f8f5;
+  }
+  .upload-feedback .uf-filename{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .upload-feedback .uf-result-row{
+    display:flex; align-items:flex-start; gap:10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 13.5px;
+  }
+  .upload-feedback .uf-result-row.ok{ background: rgba(110,135,115,0.1); color: var(--sage-deep) }
+  .upload-feedback .uf-result-row.warn{ background: rgba(210,107,78,0.09); color: #a04030 }
+  .upload-feedback .uf-result-row.note{ background: rgba(168,132,85,0.1); color: #7a5c20 }
+  .upload-feedback .uf-disclaimer{
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--ink-3);
+    line-height: 1.55;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 10px;
+  }
+  /* 로딩 애니메이션 */
+  @keyframes spin{ to{ transform:rotate(360deg) } }
+  .uf-spinner{
+    width:16px; height:16px;
+    border:2px solid var(--sage-soft);
+    border-top-color: var(--sage-deep);
+    border-radius:50%;
+    animation: spin .8s linear infinite;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+
+  /* ---------------- KAKAO BUTTON ---------------- */
+  .btn-kakao{
+    display:inline-flex; align-items:center; gap: 10px;
+    background: #FEE500;
+    color: #191919;
+    padding: 16px 28px;
+    border-radius: 999px;
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .3s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-kakao:hover{
+    background: #f0d800;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(254,229,0,0.6);
+  }
+  .btn-kakao .kakao-icon{
+    width: 22px; height: 22px;
+    flex-shrink:0;
+  }
+  /* nav용 소형 카카오 버튼 */
+  .nav-kakao{
+    display:inline-flex; align-items:center; gap: 7px;
+    background: #FEE500;
+    color: #191919;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .3s;
+  }
+  .nav-kakao:hover{ background: #f0d800; transform: translateY(-1px) }
+  .nav-kakao .kakao-icon{ width:18px; height:18px; }
+
+  /* ---------------- AI UPLOAD SECTION ---------------- */
+  .ai-upload{
+    background: var(--ink);
+    padding: 100px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .ai-upload::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-80px;
+    width:500px; height:500px;
+    background: radial-gradient(circle, rgba(210,107,78,0.12), transparent 65%);
+    pointer-events:none;
+  }
+  .ai-upload::after{
+    content:"";
+    position:absolute;
+    bottom:-100px; left:-60px;
+    width:400px; height:400px;
+    background: radial-gradient(circle, rgba(110,135,115,0.1), transparent 65%);
+    pointer-events:none;
+  }
+  .ai-upload-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .ai-upload .eyebrow{ color: rgba(201,212,195,0.6) }
+  .ai-upload .eyebrow::before{ background: rgba(201,212,195,0.4) }
+  .ai-upload .section-title{ color: var(--cream) }
+  .ai-upload .section-sub{ color: rgba(242,235,220,0.6) }
+  .ai-upload-steps{
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .upload-step{
+    display:flex; align-items:flex-start; gap:16px;
+    padding:22px 24px;
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    transition: all .3s;
+  }
+  .upload-step:hover{
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(210,107,78,0.3);
+    transform: translateX(4px);
+  }
+  .upload-step-num{
+    font-family: var(--mono);
+    font-size:11px;
+    color: var(--coral-soft);
+    letter-spacing:0.1em;
+    flex-shrink:0;
+    padding-top:3px;
+    width:28px;
+  }
+  .upload-step-body{}
+  .upload-step-title{
+    font-family: var(--serif-ko);
+    font-size:16px;
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:5px;
+  }
+  .upload-step-desc{
+    font-size:13.5px;
+    color:rgba(242,235,220,0.55);
+    line-height:1.6;
+  }
+  .ai-mockup{
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:24px;
+    padding:32px;
+    position:relative;
+  }
+  .ai-mockup-header{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px;
+    padding-bottom:16px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .ai-mockup-dot{
+    width:10px; height:10px; border-radius:50%;
+  }
+  .ai-mockup-title{
+    font-family:var(--mono);
+    font-size:12px;
+    color:rgba(242,235,220,0.4);
+    letter-spacing:0.08em;
+  }
+  .ai-result-item{
+    padding:16px 18px;
+    border-radius:12px;
+    margin-bottom:12px;
+    border:1px solid transparent;
+  }
+  .ai-result-item.normal{
+    background:rgba(110,135,115,0.12);
+    border-color:rgba(110,135,115,0.2);
+  }
+  .ai-result-item.warning{
+    background:rgba(210,107,78,0.1);
+    border-color:rgba(210,107,78,0.25);
+  }
+  .ai-result-item.info{
+    background:rgba(168,132,85,0.1);
+    border-color:rgba(168,132,85,0.2);
+  }
+  .ai-result-label{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.1em;
+    margin-bottom:5px;
+    text-transform:uppercase;
+  }
+  .ai-result-item.normal .ai-result-label{ color:var(--sage-soft) }
+  .ai-result-item.warning .ai-result-label{ color:var(--coral-soft) }
+  .ai-result-item.info .ai-result-label{ color: #c4a97a }
+  .ai-result-text{
+    font-size:13.5px;
+    color:rgba(242,235,220,0.75);
+    line-height:1.55;
+  }
+  .ai-upload-note{
+    margin-top:20px;
+    padding:16px 18px;
+    background:rgba(254,229,0,0.06);
+    border:1px solid rgba(254,229,0,0.15);
+    border-radius:12px;
+    font-size:12.5px;
+    color:rgba(242,235,220,0.45);
+    line-height:1.6;
+    display:flex; gap:10px; align-items:flex-start;
+  }
+
   /* ---------------- RESPONSIVE ---------------- */
   @media(max-width:1024px){
     .hero-grid,
@@ -848,8 +1117,13 @@
             사전 등록하기
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <a href="#why" class="btn-ghost">우리 이야기 읽기</a>
+          <button class="btn-upload" onclick="document.getElementById('checkup-file-hero').click()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            건강검진 결과 업로드
+          </button>
+          <input type="file" id="checkup-file-hero" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleUpload(this,'hero')">
         </div>
+        <div id="upload-feedback-hero" class="upload-feedback" style="display:none"></div>
       </div>
 
       <div class="hero-visual">
@@ -1178,12 +1452,17 @@
         사전 등록하시면 오픈 소식과 함께 가장 먼저 연결해드리겠습니다.
       </p>
       <div class="hero-actions" style="justify-content:center">
-        <a href="mailto:hello@imokay.kr" class="btn-primary">
+        <a href="#contact" class="btn-primary">
           사전 등록하기
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <a href="mailto:hello@imokay.kr" class="btn-ghost">이야기 전하기</a>
+        <button class="btn-upload" onclick="document.getElementById('checkup-file-cta').click()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          건강검진 결과 업로드
+        </button>
+        <input type="file" id="checkup-file-cta" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleUpload(this,'cta')">
       </div>
+      <div id="upload-feedback-cta" class="upload-feedback" style="display:none"></div>
     </div>
   </div>
 </section>
@@ -1231,12 +1510,72 @@
 </footer>
 
 <script>
+  /* ── Intersection Observer (scroll reveal) ── */
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ── 건강검진 결과 업로드 핸들러 ──
+     실제 서비스 출시 전 데모 UI입니다.
+     파일은 서버로 전송되지 않으며, 파일명만 읽어 안내 메시지를 보여줍니다.
+     실제 AI 분석 연동 시 FormData → 백엔드 API 호출로 교체하세요.
+  ── */
+  function handleUpload(input, zone) {
+    const file = input.files[0];
+    const fb   = document.getElementById('upload-feedback-' + zone);
+    if (!file) return;
+
+    const allowedTypes = ['application/pdf','image/jpeg','image/png','image/jpg'];
+    if (!allowedTypes.includes(file.type)) {
+      fb.style.display = 'block';
+      fb.className = 'upload-feedback';
+      fb.innerHTML = `<div class="uf-filename">⚠️ PDF 또는 이미지(JPG, PNG) 파일만 업로드 가능합니다.</div>`;
+      input.value = '';
+      return;
+    }
+    if (file.size > 20 * 1024 * 1024) {
+      fb.style.display = 'block';
+      fb.className = 'upload-feedback';
+      fb.innerHTML = `<div class="uf-filename">⚠️ 파일 크기는 20MB 이하로 업로드해 주세요.</div>`;
+      input.value = '';
+      return;
+    }
+
+    /* 로딩 상태 */
+    fb.style.display = 'block';
+    fb.className = 'upload-feedback loading';
+    fb.innerHTML = `
+      <div class="uf-filename">
+        <div class="uf-spinner"></div>
+        "${file.name}" 분석 중입니다…
+      </div>`;
+
+    /* 데모: 1.8초 후 결과 표시 (실제 연동 시 API 응답으로 교체) */
+    setTimeout(() => {
+      fb.className = 'upload-feedback success';
+      fb.innerHTML = `
+        <div class="uf-filename">
+          ✅ &nbsp;<strong>${file.name}</strong> 업로드 완료
+        </div>
+        <div class="uf-result-row ok">
+          ✔ &nbsp;주요 수치(혈압·혈당·콜레스테롤) 정상 범위 내 확인
+        </div>
+        <div class="uf-result-row warn">
+          ⚠ &nbsp;갑상선자극호르몬(TSH) 수치 — 기준치 상단 근접, 추적 관찰 권고
+        </div>
+        <div class="uf-result-row note">
+          ℹ &nbsp;최근 3회 검진 대비 체중 변화 감지 — 지속 모니터링 추천
+        </div>
+        <div class="uf-disclaimer">
+          ※ 본 분석은 AI 기반 참고 정보이며 의료 진단을 대체하지 않습니다.
+          정확한 판단은 반드시 담당 의료진과 상담하세요.
+        </div>`;
+      input.value = '';
+    }, 1800);
+  }
 </script>
 
 </body>
